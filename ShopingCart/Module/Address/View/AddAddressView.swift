@@ -123,7 +123,8 @@ extension AddAddressView {
             } else if address == ""  {
                 addressNameTextField.removeError()
                 addressDecriptionTextView.makeError()
-            } else if  cityName == ""  {
+            } else if cityName == ""  {
+                addressNameTextField.removeError()
                 addressDecriptionTextView.removeError()
                 addressCityTextField.makeError()
             } else {

@@ -199,14 +199,17 @@ class CartTableViewCell: UITableViewCell {
     
     func deliveryDate(price : Double) {
         switch price {
-        case 400...2400.0 :
-            let text =  "Delivery Date: Fast Delivery"
-            deliveryDatelabel.attributedText = text.underlineAttriStringText(text: text, rangeText1: "Delivery Date:", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "Fast Delivery", rangeText2Font: .Bold_15, rangeText2Color: .fastDeliveryColor)
-            ToastMessage.showToastMessage(message: "Orders over $400 will reach you within days.", font: .Regular_18, y: ScreenSize.height/1.3, imgUrl: "box.truck.badge.clock.fill", vc: self.viewController!)
-        default :
+        case 0..<400.0 :
             let text =  "Delivery Date: \(Time().getDate())"
-            deliveryDatelabel.attributedText = text.underlineAttriStringText(text: text, rangeText1: "Delivery Date:", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "\(Time().getDate())", rangeText2Font: .Bold_15, rangeText2Color: .mainAppColor)
-            
+            deliveryDatelabel.attributedText = text.underlineAttriStringText(text: text,
+                                                                             rangeText1: "Delivery Date:", rangeText1Font: .Regular_15, rangeText1Color: .black,
+                                                                             rangeText2: "\(Time().getDate())", rangeText2Font: .Bold_15, rangeText2Color: .mainAppColor)
+        default :
+            let text =  "Delivery Date: Fast Delivery"
+            deliveryDatelabel.attributedText = text.underlineAttriStringText(text: text,
+                                                                             rangeText1: "Delivery Date:", rangeText1Font: .Regular_15, rangeText1Color: .black,
+                                                                             rangeText2: "Fast Delivery", rangeText2Font: .Bold_15, rangeText2Color: .fastDeliveryColor)
+            ToastMessage.showToastMessage(message: "Orders over $400 will reach you within days.", font: .Regular_18, y: ScreenSize.height/1.3, imgUrl: "box.truck.badge.clock.fill", vc: self.viewController!)
         }
     }
 }

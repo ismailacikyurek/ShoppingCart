@@ -42,7 +42,7 @@ extension ProfileView : GeneralViewProtocol {
         self.backgroundColor = .white
         upView.createView(backgroundColor: UIColor(patternImage: UIImage(named:"registerBack")!),cornerRadius: 30)
         profilePhotoView.createView(backgroundColor: .white,maskedToBounds: true, cornerRadius: 60,clipsToBounds: true,borderColor: UIColor.white.cgColor,borderWidth: 2)
-        profilePhoto.createUIImageView(image: UIImage(named: ""),contentMode: .scaleToFill,zPosition: 2)
+        profilePhoto.createUIImageView(image: UIImage(systemName: "person.circle"), tintColor: .black,contentMode: .scaleToFill,zPosition: 2)
         
         let circularPath = UIBezierPath(arcCenter: CGPoint(x: ScreenSize.widht/2, y: ScreenSize.height/7+8), radius: 60, startAngle: 0, endAngle: 2*CGFloat(CFloat.pi), clockwise: true)
         shapeLayer.path = circularPath.cgPath

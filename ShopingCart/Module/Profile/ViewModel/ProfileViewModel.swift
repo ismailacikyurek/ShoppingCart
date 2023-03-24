@@ -52,7 +52,7 @@ final class ProfileViewModel {
     }
     func setProfilePhoto(imageData: Data) {
         if let currentUser = currentUser {
-            let profileImageRef = storage.child("profilePhotos/photo.png")
+            let profileImageRef = storage.child("profilePhotos/\(currentUser.uid)/photo.png")
             profileImageRef.putData(imageData) { data, error in
                 if error != nil {
                     print(error?.localizedDescription)
@@ -66,7 +66,7 @@ final class ProfileViewModel {
     
     func getProfilePhoto() {
         if let currentUser = currentUser {
-            let profileImageRef = storage.child("profilePhotos/photo.png")
+            let profileImageRef = storage.child("profilePhotos/\(currentUser.uid)/photo.png")
             profileImageRef.downloadURL { url, error in
                 guard let url = url , error == nil else { return }
                 let urlString = url.absoluteString

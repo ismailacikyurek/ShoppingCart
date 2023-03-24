@@ -60,7 +60,7 @@ extension OnBoardingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension OnBoardingViewController {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let witdh = scrollView.frame.width
-        onboardingView.currentIndex = Int((scrollView.contentOffset.x / witdh) + 0.1)
+        let screenWitdh = scrollView.frame.width
+        onboardingView.currentIndex = Int((scrollView.contentOffset.x / screenWitdh) + 0.1)
     }
 }

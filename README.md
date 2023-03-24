@@ -21,5 +21,5 @@ Architecture: MVVM
 ![Ekran![Ekran Resmi 2023-03-24 21 22 53](https://user-images.githubusercontent.com/82399051/227609505-838808f6-1157-4682-b9c1-f1344bfe1e99.png)
  Resmi 2023-03-24 21 24 26](https://user-images.githubusercontent.com/82399051/227609490-7180abe5-1dd2-497a-9534-1d6f7314c3fa.png)
 
-https://user-images.githubusercontent.com/82399051/227631409-1e4e9081-4d5a-47fe-9d04-222fb0d14235.mov
+https://user-images.githubusercontent.com/82399051/227631409-1e4e9081-4d5a-47fe-9d04-222fb0d14235.mov;
 https://user-images.githubusercontent.com/82399051/227632038-0f056e33-7a0c-4c0f-9bd0-a50497430d68.mp4

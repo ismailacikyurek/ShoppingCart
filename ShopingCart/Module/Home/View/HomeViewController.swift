@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
         view = homeView
         homeView.interface = self
         homeViewModel.delegate = self
-        Loading.startLoading(vc: self)
         setupTableViewDelegate()
         setupDelegate()
     }
@@ -62,7 +61,6 @@ extension HomeViewController : HomeViewModelProtocol {
     }
     
     func didError(_ error: String) {
-        Loading.stopLoading(vc: self)
         GeneralPopup.showPopup(vc: self, image: .error, title: "Error", subtitle: error, buttonText: "Ok")
     }
     
@@ -100,7 +98,6 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case homeView.productCollectionView :
             guard let cell = homeView.productCollectionView.dequeueReusableCell(withReuseIdentifier: ProductCollectionViewCell.identifier, for: indexPath) as? ProductCollectionViewCell else { return UICollectionViewCell()}
             cell.delegate = self
-            Loading.stopLoading(vc: self)
             self.homeViewModel.fetchFavList()
             cell.configure(data: homeViewModel.products[indexPath.row], favStatus: homeViewModel.favList )
             return cell
@@ -182,7 +179,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension HomeViewController {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        let witdh = scrollView.frame.width
-        homeView.currentIndex = Int(scrollView.contentOffset.x / witdh)
+        let screenWitdh = scrollView.frame.width
+        homeView.currentIndex = Int(scrollView.contentOffset.x / screenWitdh)
     }
 }

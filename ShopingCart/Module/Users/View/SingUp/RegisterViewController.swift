@@ -37,8 +37,7 @@ extension RegisterViewController : RegisterViewInterfaceProtocol {
     func registerViewSingInTapped() {
         let LoginVC = LoginViewController()
         LoginVC.modalPresentationStyle = .overFullScreen
-        present(LoginVC, animated: true)
-        //        navigationController?.pushViewController(LoginVC, animated: true)
+        navigationController?.pushViewController(LoginVC, animated: true)
     }
     
     func registerViewSingUpTapped() {

@@ -29,10 +29,9 @@ extension LoginViewController : LoginViewInterfaceProtocol {
     }
     
     func loginViewSingUpTapped() {
-        let SingUp = RegisterViewController()
-        SingUp.modalPresentationStyle = .overFullScreen
-        present(SingUp, animated: true)
-        //        navigationController?.pushViewController(SingUp, animated: true)
+        let singUp = RegisterViewController()
+        singUp.modalPresentationStyle = .overFullScreen
+        navigationController?.pushViewController(singUp, animated: true)
     }
     
 }

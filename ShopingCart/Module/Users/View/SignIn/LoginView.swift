@@ -45,7 +45,7 @@ class LoginView: UIView {
 
 extension LoginView : GeneralViewProtocol {
     func addTarget() {
-        signInButton.addTarget(self, action:#selector(SignInTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action:#selector(signInTapped), for: .touchUpInside)
         securityButton.addTarget(self, action:#selector(securityButtonTapped), for: .touchUpInside)
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpLabelTapped))

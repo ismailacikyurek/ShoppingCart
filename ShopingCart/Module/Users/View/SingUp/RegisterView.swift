@@ -56,16 +56,16 @@ class RegisterView: UIView {
 
 extension RegisterView : GeneralViewProtocol {
     func addTarget() {
-        signUpButton.addTarget(self, action:#selector(SignUpTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action:#selector(signUpTapped), for: .touchUpInside)
         securityButton.addTarget(self, action:#selector(securityButtonTapped), for: .touchUpInside)
         securityAgainButton.addTarget(self, action:#selector(securityAgainButtonTapped), for: .touchUpInside)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInTapped))
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(signInTapped))
         self.signInLabel.addGestureRecognizer(gestureRecognizer)
         
-        agreementCheckButton.addTarget(self, action:#selector(CheckButtonTapped), for: .touchUpInside)
+        agreementCheckButton.addTarget(self, action:#selector(checkButtonTapped), for: .touchUpInside)
         
-        let gestureRecognizerAgreementLabel = UITapGestureRecognizer(target: self, action: #selector(AgreementTapped))
+        let gestureRecognizerAgreementLabel = UITapGestureRecognizer(target: self, action: #selector(agreementTapped))
         self.agreementLabel.addGestureRecognizer(gestureRecognizerAgreementLabel)
         
         let viewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editKeyboard))
@@ -126,10 +126,10 @@ extension RegisterView : GeneralViewProtocol {
 
 extension RegisterView  {
     //MARK: UI Action
-    @objc func SignInTapped() {
+    @objc func signInTapped() {
         interface?.registerViewSignInTapped()
     }
-    @objc func SignUpTapped() {
+    @objc func signUpTapped() {
         if usernameTextField.text == "" {
             usernameTextField.makeError()
         } else if emailTextField.text == "" {
@@ -179,7 +179,7 @@ extension RegisterView  {
             self.againPasswordTextField.isSecureTextEntry = true
         }
     }
-    @objc func CheckButtonTapped() {
+    @objc func checkButtonTapped() {
         if checkButton == false {
             checkButton = true
             agreementCheckButton.setImage(UIImage(named: "selected"), for: .normal)
@@ -189,7 +189,7 @@ extension RegisterView  {
         }
         
     }
-    @objc func AgreementTapped() {
+    @objc func agreementTapped() {
         interface?.registerViewAgreementLabelTapped()
     }
     @objc func editKeyboard() {

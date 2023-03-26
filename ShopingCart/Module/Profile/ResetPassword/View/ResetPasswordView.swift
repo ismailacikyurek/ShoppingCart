@@ -10,7 +10,7 @@ import SnapKit
 
 //MARK: Protocols
 protocol ResetPasswordViewInterfaceProtocol: AnyObject {
-    func ResetPasswordViewSendButton(email : String?)
+    func resetPasswordViewSendButton(email : String?)
 }
 class ResetPasswordView: UIView {
     
@@ -80,7 +80,7 @@ extension ResetPasswordView {
     @objc func sendButtonTapped() {
         self.email = emailTextField.text
         guard let email = self.email else {return; emailTextField.makeError() }
-        interface?.ResetPasswordViewSendButton(email: email)
+        interface?.resetPasswordViewSendButton(email: email)
     }
     @objc func editKeyboard() {
         self.endEditing(true)

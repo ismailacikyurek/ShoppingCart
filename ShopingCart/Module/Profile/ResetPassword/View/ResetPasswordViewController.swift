@@ -35,7 +35,7 @@ extension ResetPasswordViewController : ProfileViewModelResetPasswordProtocol {
 }
 
 extension ResetPasswordViewController : ResetPasswordViewInterfaceProtocol {
-    func ResetPasswordViewSendButton(email: String?) {
+    func resetPasswordViewSendButton(email: String?) {
         profileViewModel.resetPassword(email: email!)
     }
 }

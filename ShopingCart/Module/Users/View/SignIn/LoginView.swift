@@ -8,20 +8,20 @@ import UIKit
 import SnapKit
 
 protocol LoginViewInterfaceProtocol: AnyObject {
-    func loginViewSingInTapped()
-    func loginViewSingUpTapped()
+    func loginViewSignInTapped()
+    func loginViewSignUpTapped()
 }
 
 class LoginView: UIView {
     
     // MARK: UIComponent
-    lazy var singInLabel = UILabel()
+    lazy var signInLabel = UILabel()
     lazy var upView = UIView()
     lazy var middleView = UIView()
     lazy var emailTextField = UITextField()
     lazy var passwordTextField = UITextField()
-    lazy var singInButton = UIButton()
-    lazy var singUpLabel = UILabel()
+    lazy var signInButton = UIButton()
+    lazy var signUpLabel = UILabel()
     lazy var securityButton = UIButton()
     
     var securityPassword = false
@@ -45,11 +45,11 @@ class LoginView: UIView {
 
 extension LoginView : GeneralViewProtocol {
     func addTarget() {
-        singInButton.addTarget(self, action:#selector(SingInTapped), for: .touchUpInside)
+        signInButton.addTarget(self, action:#selector(SignInTapped), for: .touchUpInside)
         securityButton.addTarget(self, action:#selector(securityButtonTapped), for: .touchUpInside)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SingUpLabelTapped))
-        self.singUpLabel.addGestureRecognizer(gestureRecognizer)
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignUpLabelTapped))
+        self.signUpLabel.addGestureRecognizer(gestureRecognizer)
         
         let viewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(editKeyboard))
         self.addGestureRecognizer(viewGestureRecognizer)
@@ -59,14 +59,14 @@ extension LoginView : GeneralViewProtocol {
         self.backgroundColor = .white
         upView.createView(backgroundColor: UIColor(patternImage: UIImage(named:"registerBack")!))
         middleView.createView(backgroundColor: .white,cornerRadius: 22,shadowColor: UIColor.gray.cgColor,shadowOffset: CGSize(width: 5, height: 5))
-        singInLabel.createLabel(text: "SingIn",backgroundColor: .clear, textColor: .mainAppColor,font: .Bold_44,textAlignment: .center)
+        signInLabel.createLabel(text: "SignIn",backgroundColor: .clear, textColor: .mainAppColor,font: .Bold_44,textAlignment: .center)
         emailTextField.createTextField(backgroundColor: .middleViewColor, placeHolder: " Email", cornerRadius: 15,image: UIImage(systemName: "envelope")!)
         passwordTextField.createTextField(backgroundColor: .middleViewColor,placeHolder: " Password", cornerRadius: 15,image: UIImage(systemName: "lock.circle")!,SecureTextEntry: true)
-        singInButton.createButton(title: "Sing In",backgroundColor: .mainAppColor,titleColor: .black,font: .Semibold_18,cornerRadius: 15)
+        signInButton.createButton(title: "Sign In",backgroundColor: .mainAppColor,titleColor: .black,font: .Semibold_18,cornerRadius: 15)
         
-        singUpLabel.createLabel(text: "Not a Member? Sign Up", backgroundColor: .clear, font: .Regular_15, numberOfLines: 2,textAlignment: .center)
+        signUpLabel.createLabel(text: "Not a Member? Sign Up", backgroundColor: .clear, font: .Regular_15, numberOfLines: 2,textAlignment: .center)
         let textAgrement = "Not a Member? Sign Up"
-        singUpLabel.attributedText = textAgrement.underlineAttriStringText(text: "Not a Member? Sign Up", rangeText1: "", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "Sign Up", rangeText2Font: .Regular_15, rangeText2Color: .mainAppColor)
+        signUpLabel.attributedText = textAgrement.underlineAttriStringText(text: "Not a Member? Sign Up", rangeText1: "", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "Sign Up", rangeText2Font: .Regular_15, rangeText2Color: .mainAppColor)
         securityButton.createButton(titleColor: .systemGray)
         securityButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
     }
@@ -74,16 +74,16 @@ extension LoginView : GeneralViewProtocol {
     func layoutUI() {
         upViewConstraints()
         middleViewConstraints()
-        singInLabelConstraints()
+        signInLabelConstraints()
         emailTextFiledConstraints()
         passwordTextFiledConstraints()
-        singInButtonConstraints()
-        singUpLabelConstraints()
+        signInButtonConstraints()
+        signUpLabelConstraints()
         securityButtonConstraints()
     }
     
     func addView() {
-        addSubviews(upView,middleView,singInLabel,emailTextField,passwordTextField,singInButton,singUpLabel)
+        addSubviews(upView,middleView,signInLabel,emailTextField,passwordTextField,signInButton,signUpLabel)
         passwordTextField.addSubview(securityButton)
     }
 }
@@ -97,7 +97,7 @@ extension LoginView  {
             emailTextField.removeError()
             passwordTextField.makeError()
         } else {
-            interface?.loginViewSingInTapped()
+            interface?.loginViewSignInTapped()
         }
         
     }
@@ -112,8 +112,8 @@ extension LoginView  {
             self.passwordTextField.isSecureTextEntry = true
         }
     }
-    @objc func SingUpLabelTapped() {
-        interface?.loginViewSingUpTapped()
+    @objc func SignUpLabelTapped() {
+        interface?.loginViewSignUpTapped()
     }
     @objc func editKeyboard() {
         self.endEditing(true)
@@ -138,8 +138,8 @@ extension LoginView  {
         }
     }
     
-    func singInLabelConstraints() {
-        self.singInLabel.snp.makeConstraints { make in
+    func signInLabelConstraints() {
+        self.signInLabel.snp.makeConstraints { make in
             make.top.equalTo(middleView.snp.top).offset(20)
             make.leading.trailing.equalTo(self).offset(0)
             make.height.equalTo(60)
@@ -148,7 +148,7 @@ extension LoginView  {
     
     func emailTextFiledConstraints() {
         self.emailTextField.snp.makeConstraints { make in
-            make.top.equalTo(singInLabel.snp.bottom).offset(40)
+            make.top.equalTo(signInLabel.snp.bottom).offset(40)
             make.leading.equalTo(self.snp.leading).offset(25)
             make.trailing.equalTo(self.snp.trailing).offset(-25)
             make.height.equalTo(50)
@@ -163,16 +163,16 @@ extension LoginView  {
         }
     }
     
-    func singInButtonConstraints() {
-        self.singInButton.snp.makeConstraints { make in
+    func signInButtonConstraints() {
+        self.signInButton.snp.makeConstraints { make in
             make.top.equalTo(passwordTextField.snp.bottom).offset(20)
             make.leading.trailing.equalTo(emailTextField).offset(0)
             make.height.equalTo(emailTextField)
         }
     }
     
-    func singUpLabelConstraints() {
-        self.singUpLabel.snp.makeConstraints { make in
+    func signUpLabelConstraints() {
+        self.signUpLabel.snp.makeConstraints { make in
             make.top.equalTo(middleView.snp.bottom).offset(-30)
             make.leading.trailing.equalTo(passwordTextField).offset(0)
             make.height.equalTo(30)

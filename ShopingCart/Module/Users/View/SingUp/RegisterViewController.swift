@@ -1,5 +1,5 @@
 //
-//  SingUpViewController.swift
+//  SignUpViewController.swift
 //  ShopingCart
 //
 //  Created by İSMAİL AÇIKYÜREK on 6.03.2023.
@@ -34,13 +34,13 @@ extension RegisterViewController : RegisterViewInterfaceProtocol {
         GeneralPopup.showPopup(vc: self, image: .error, title: "Error", subtitle: "Passwords is Short", buttonText: "Ok")
     }
     
-    func registerViewSingInTapped() {
+    func registerViewSignInTapped() {
         let LoginVC = LoginViewController()
         LoginVC.modalPresentationStyle = .overFullScreen
         navigationController?.pushViewController(LoginVC, animated: true)
     }
     
-    func registerViewSingUpTapped() {
+    func registerViewSignUpTapped() {
         
         let username = registerView.usernameTextField.text
         let email = registerView.emailTextField.text

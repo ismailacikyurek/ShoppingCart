@@ -22,16 +22,16 @@ class LoginViewController: UIViewController{
 }
 
 extension LoginViewController : LoginViewInterfaceProtocol {
-    func loginViewSingInTapped() {
+    func loginViewSignInTapped() {
         guard let email = loginView.emailTextField.text,
               let password  = loginView.passwordTextField.text else {return}
         usersViewModel.login(email:email , password: password)
     }
     
-    func loginViewSingUpTapped() {
-        let singUp = RegisterViewController()
-        singUp.modalPresentationStyle = .overFullScreen
-        navigationController?.pushViewController(singUp, animated: true)
+    func loginViewSignUpTapped() {
+        let signUp = RegisterViewController()
+        signUp.modalPresentationStyle = .overFullScreen
+        navigationController?.pushViewController(signUp, animated: true)
     }
     
 }

@@ -1,5 +1,5 @@
 //
-//  SingUpView.swift
+//  SignUpView.swift
 //  ShopingCart
 //
 //  Created by İSMAİL AÇIKYÜREK on 6.03.2023.
@@ -9,8 +9,8 @@ import UIKit
 import SnapKit
 
 protocol RegisterViewInterfaceProtocol: AnyObject {
-    func registerViewSingInTapped()
-    func registerViewSingUpTapped()
+    func registerViewSignInTapped()
+    func registerViewSignUpTapped()
     func passwordShortError()
     func registerViewAgreementLabelTapped()
 }
@@ -23,9 +23,9 @@ class RegisterView: UIView {
     lazy var emailTextField = UITextField()
     lazy var passwordTextField = UITextField()
     lazy var againPasswordTextField = UITextField()
-    lazy var singUpButton = UIButton()
-    lazy var singUPLabel = UILabel()
-    lazy var singInLabel = UILabel()
+    lazy var signUpButton = UIButton()
+    lazy var signUPLabel = UILabel()
+    lazy var signInLabel = UILabel()
     lazy var upView = UIView()
     lazy var middleView = UIView()
     lazy var agreementCheckButton = UIButton()
@@ -56,12 +56,12 @@ class RegisterView: UIView {
 
 extension RegisterView : GeneralViewProtocol {
     func addTarget() {
-        singUpButton.addTarget(self, action:#selector(SingUpTapped), for: .touchUpInside)
+        signUpButton.addTarget(self, action:#selector(SignUpTapped), for: .touchUpInside)
         securityButton.addTarget(self, action:#selector(securityButtonTapped), for: .touchUpInside)
         securityAgainButton.addTarget(self, action:#selector(securityAgainButtonTapped), for: .touchUpInside)
         
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SingInTapped))
-        self.singInLabel.addGestureRecognizer(gestureRecognizer)
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SignInTapped))
+        self.signInLabel.addGestureRecognizer(gestureRecognizer)
         
         agreementCheckButton.addTarget(self, action:#selector(CheckButtonTapped), for: .touchUpInside)
         
@@ -76,13 +76,13 @@ extension RegisterView : GeneralViewProtocol {
         self.backgroundColor = .white
         upView.createView(backgroundColor: UIColor(patternImage: UIImage(named:"registerBack")!))
         middleView.createView(backgroundColor: .white,cornerRadius: 22,shadowColor: UIColor.gray.cgColor,shadowOffset: CGSize(width: 5, height: 5))
-        singUPLabel.createLabel(text: "SingUp",backgroundColor: .clear, textColor: .mainAppColor,font: .Bold_44,textAlignment: .center)
+        signUPLabel.createLabel(text: "SignUp",backgroundColor: .clear, textColor: .mainAppColor,font: .Bold_44,textAlignment: .center)
         
         usernameTextField.createTextField(backgroundColor: .middleViewColor, placeHolder: " Username",cornerRadius: 15,image: UIImage(systemName: "person")!)
         emailTextField.createTextField(backgroundColor: .middleViewColor, placeHolder: " Email", cornerRadius: 15,image: UIImage(systemName: "envelope")!)
         passwordTextField.createTextField(backgroundColor: .middleViewColor,placeHolder: " Password", cornerRadius: 15,image: UIImage(systemName: "lock.circle")!,SecureTextEntry: true)
         againPasswordTextField.createTextField(backgroundColor: .middleViewColor, placeHolder: " Again Password", cornerRadius: 15,image: UIImage(systemName: "lock.circle")!,SecureTextEntry: true)
-        singUpButton.createButton(title: "Sing Up",backgroundColor: .mainAppColor,titleColor: .black,font: .Semibold_18,cornerRadius: 15)
+        signUpButton.createButton(title: "Sign Up",backgroundColor: .mainAppColor,titleColor: .black,font: .Semibold_18,cornerRadius: 15)
         agreementCheckButton.createButton(title: "",backgroundColor: .white,image: "unselected")
         
         agreementLabel.createLabel(text: "I have read the membership agreement, I accept.", backgroundColor: .clear, font: .Regular_15, numberOfLines: 2,textAlignment: .left)
@@ -90,9 +90,9 @@ extension RegisterView : GeneralViewProtocol {
         agreementLabel.attributedText = textAgrement.underlineAttriStringText(text: "I have read the membership agreement, I accept.", rangeText1: "", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "membership agreement", rangeText2Font: .Regular_15, rangeText2Color: .mainAppColor)
         
         
-        singInLabel.createLabel(text: "Already a Member? Sign In", backgroundColor: .clear,font: .Regular_15,textAlignment: .center)
+        signInLabel.createLabel(text: "Already a Member? Sign In", backgroundColor: .clear,font: .Regular_15,textAlignment: .center)
         let text = "Already a Member? Sign In"
-        singInLabel.attributedText = text.underlineAttriStringText(text: "Already a Member? Sign In", rangeText1: "Already a Member?", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "Sign In", rangeText2Font: .Regular_15, rangeText2Color: .mainAppColor)
+        signInLabel.attributedText = text.underlineAttriStringText(text: "Already a Member? Sign In", rangeText1: "Already a Member?", rangeText1Font: .Regular_15, rangeText1Color: .black, rangeText2: "Sign In", rangeText2Font: .Regular_15, rangeText2Color: .mainAppColor)
         
         securityButton.createButton(titleColor: .systemGray)
         securityButton.setImage(UIImage(systemName: "eye.slash"), for: .normal)
@@ -103,21 +103,21 @@ extension RegisterView : GeneralViewProtocol {
     func layoutUI() {
         upViewConstraints()
         middleViewConstraints()
-        singUPLabelConstraints()
+        signUpLabelConstraints()
         usernameTextFiledConstraints()
         emailTextFiledConstraints()
         passwordTextFiledConstraints()
         againPasswordTextFiledConstraints()
-        singUpButtonConstraints()
+        signUpButtonConstraints()
         agremmentLabelConstraints()
         agremmentCheckButtonConstraints()
-        singInLabelConstraints()
+        signInLabelConstraints()
         securityButtonConstraints()
         securityAgainButtonConstraints()
     }
     
     func addView() {
-        addSubviews(upView,middleView,singUPLabel,usernameTextField,emailTextField,passwordTextField,againPasswordTextField,singUpButton,singInLabel,agreementCheckButton,agreementLabel)
+        addSubviews(upView,middleView,signUPLabel,usernameTextField,emailTextField,passwordTextField,againPasswordTextField,signUpButton,signInLabel,agreementCheckButton,agreementLabel)
         passwordTextField.addSubview(securityButton)
         againPasswordTextField.addSubview(securityAgainButton)
         
@@ -126,10 +126,10 @@ extension RegisterView : GeneralViewProtocol {
 
 extension RegisterView  {
     //MARK: UI Action
-    @objc func SingInTapped() {
-        interface?.registerViewSingInTapped()
+    @objc func SignInTapped() {
+        interface?.registerViewSignInTapped()
     }
-    @objc func SingUpTapped() {
+    @objc func SignUpTapped() {
         if usernameTextField.text == "" {
             usernameTextField.makeError()
         } else if emailTextField.text == "" {
@@ -154,7 +154,7 @@ extension RegisterView  {
             agreementCheckButton.emptyCheckButton()
         }
         else {
-            interface?.registerViewSingUpTapped()
+            interface?.registerViewSignUpTapped()
         }
     }
     @objc func securityButtonTapped() {
@@ -215,8 +215,8 @@ extension RegisterView  {
         }
     }
     
-    func singUPLabelConstraints() {
-        self.singUPLabel.snp.makeConstraints { make in
+    func signUpLabelConstraints() {
+        self.signUPLabel.snp.makeConstraints { make in
             make.top.equalTo(middleView.snp.top).offset(20)
             make.leading.trailing.equalTo(self).offset(0)
             make.height.equalTo(60)
@@ -226,7 +226,7 @@ extension RegisterView  {
     
     func usernameTextFiledConstraints() {
         self.usernameTextField.snp.makeConstraints { make in
-            make.top.equalTo(singUPLabel.snp.bottom).offset(20)
+            make.top.equalTo(signUPLabel.snp.bottom).offset(20)
             make.leading.equalTo(self.snp.leading).offset(25)
             make.trailing.equalTo(self.snp.trailing).offset(-25)
             make.height.equalTo(45)
@@ -253,8 +253,8 @@ extension RegisterView  {
             make.height.equalTo(usernameTextField).offset(0)
         }
     }
-    func singUpButtonConstraints() {
-        self.singUpButton.snp.makeConstraints { make in
+    func signUpButtonConstraints() {
+        self.signUpButton.snp.makeConstraints { make in
             make.top.equalTo(againPasswordTextField.snp.bottom).offset(15)
             make.leading.trailing.equalTo(usernameTextField).offset(0)
             make.height.equalTo(usernameTextField).offset(0)
@@ -262,7 +262,7 @@ extension RegisterView  {
     }
     func agremmentCheckButtonConstraints() {
         self.agreementCheckButton.snp.makeConstraints { make in
-            make.top.equalTo(singUpButton.snp.bottom).offset(5)
+            make.top.equalTo(signUpButton.snp.bottom).offset(5)
             make.leading.equalTo(usernameTextField).offset(0)
             make.height.width.equalTo(20)
         }
@@ -274,8 +274,8 @@ extension RegisterView  {
             make.height.equalTo(30)
         }
     }
-    func singInLabelConstraints() {
-        self.singInLabel.snp.makeConstraints { make in
+    func signInLabelConstraints() {
+        self.signInLabel.snp.makeConstraints { make in
             make.top.equalTo(middleView.snp.bottom).offset(-30)
             make.leading.equalTo(usernameTextField.snp.leading).offset(0)
             make.trailing.equalTo(usernameTextField.snp.trailing).offset(0)

@@ -12,10 +12,7 @@ Libraries I use:
 Architecture: MVVM
 
 
-<img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609206-b54ccc80-dfa5-4537-94aa-97d5dfdc5271.png">
-<img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609399-40e82f26-b394-46bb-96c1-602b7d18b075.png">
-<img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609414-8bf41983-5152-413a-92e6-d08a4e9944f5.png">
-<img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609432-79716062-b88e-456a-870e-c8ed7916e8d3.png">
+<img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609206-b54ccc80-dfa5-4537-94aa-97d5dfdc5271.png"><img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609399-40e82f26-b394-46bb-96c1-602b7d18b075.png"><img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609414-8bf41983-5152-413a-92e6-d08a4e9944f5.png"><img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609432-79716062-b88e-456a-870e-c8ed7916e8d3.png">
 
 <img height="538" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227609443-5e2a5c84-a55a-440d-8429-5266619c74fb.png">
 

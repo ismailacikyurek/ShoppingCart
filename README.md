@@ -17,9 +17,14 @@ Architecture: MVVM
 
 
 
-<img height="530" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227632038-0f056e33-7a0c-4c0f-9bd0-a50497430d68.mp4"><img height="530" alt="Ekran Resmi 2023-03-27 18 36 41" src="https://user-images.githubusercontent.com/82399051/227631409-1e4e9081-4d5a-47fe-9d04-222fb0d14235.mov">
 
+<video width="320" height="240" controls="controls">
+
+  <source src="https://user-images.githubusercontent.com/82399051/227632038-0f056e33-7a0c-4c0f-9bd0-a50497430d68.mp4" type="audio/mp4">
+
+  <source src="https://user-images.githubusercontent.com/82399051/227631409-1e4e9081-4d5a-47fe-9d04-222fb0d14235.mov" type="audio/mov">
+
+</video>
 
 https://user-images.githubusercontent.com/82399051/227632038-0f056e33-7a0c-4c0f-9bd0-a50497430d68.mp4
-
 https://user-images.githubusercontent.com/82399051/227631409-1e4e9081-4d5a-47fe-9d04-222fb0d14235.mov

@@ -90,7 +90,7 @@ extension LoginView : GeneralViewProtocol {
 
 extension LoginView  {
     //MARK: UI Action
-    @objc func SingInTapped() {
+    @objc func signInTapped() {
         if emailTextField.text == "" {
             emailTextField.makeError()
         } else if passwordTextField.text == "" {

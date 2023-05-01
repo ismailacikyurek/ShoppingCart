@@ -12,16 +12,19 @@ import Alamofire
 
 //MARK: Protocols
 protocol ShoppingCartServiceProtokol {
-    func fethAllPosts<T:Codable>(url:String,onSuccess: @escaping (T) -> Void, onFail: @escaping (Error?) -> Void)
+    func fethAllPosts<T:Codable>(url:URL,onSuccess: @escaping (T) -> Void, onFail: @escaping (Error?) -> Void)
 }
 
 public struct ShopingCartDataService: ShoppingCartServiceProtokol {
-    func fethAllPosts<T>(url: String, onSuccess: @escaping (T) -> Void, onFail: @escaping (Error?) -> Void) where T : Decodable, T : Encodable {
+    func fethAllPosts<T>(url: URL, onSuccess: @escaping (T) -> Void, onFail: @escaping (Error?) -> Void) where T : Decodable, T : Encodable {
         AF.request(url, method: .get).validate().responseDecodable(of:T.self) { (response) in
             guard let items =  response.value else {
                 onFail(response.error)
                 return
             }
+            print(url)
+            print(url)
+            print(url)
             onSuccess(items)
         }
     }

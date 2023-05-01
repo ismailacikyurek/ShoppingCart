@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FiltreViewController: UIViewController {
+final class FiltreViewController: UIViewController {
     
     let filterView = FilterView()
     let filterViewModel = FilterViewModel()

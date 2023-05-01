@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-class RecentlyViewController: UIViewController {
+final class RecentlyViewController: UIViewController {
     
     private let recentlyViewModel = RecentlyViewModel()
     let recentlyView = RecentlyView()

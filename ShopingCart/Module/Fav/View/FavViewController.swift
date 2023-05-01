@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FavViewController: UIViewController {
+final class FavViewController: UIViewController {
     
     private let favViewModel = FavViewModel()
     let favView = FavView()

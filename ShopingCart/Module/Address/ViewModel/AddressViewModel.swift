@@ -17,7 +17,7 @@ protocol AddressViewModelProtocol: AnyObject {
     func didUpdateAddressSuccessful()
 }
 
-class AddressViewModel {
+final class AddressViewModel {
     
     weak var delegate : AddressViewModelProtocol?
     private let database = Firestore.firestore()

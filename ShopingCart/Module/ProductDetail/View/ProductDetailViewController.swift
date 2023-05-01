@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 
-class ProductDetailViewController: UIViewController {
+final class ProductDetailViewController: UIViewController {
     
     private let productDetailViewModel = ProductDetailViewModel()
     let productDetailView = ProductDetailView()

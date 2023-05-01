@@ -30,6 +30,7 @@ public class WebService:NSObject{
             success(b)
         } onFail: { error in
             onFail(error)
+        
         }
     }
     
@@ -51,4 +52,3 @@ public enum SelectedCategory: String {
     case menSClothing = "men's%20clothing"
     case womenSClothing = "women's%20clothing"
 }
-

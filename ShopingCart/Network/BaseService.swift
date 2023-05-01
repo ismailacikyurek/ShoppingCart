@@ -22,9 +22,6 @@ public struct ShopingCartDataService: ShoppingCartServiceProtokol {
                 onFail(response.error)
                 return
             }
-            print(url)
-            print(url)
-            print(url)
             onSuccess(items)
         }
     }

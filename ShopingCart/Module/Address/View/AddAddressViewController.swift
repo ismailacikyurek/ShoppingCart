@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddAddressViewController: UIViewController {
+final class AddAddressViewController: UIViewController {
     
     private let addressViewModel = AddressViewModel()
     let addAddressView = AddAddressView()

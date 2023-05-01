@@ -20,7 +20,7 @@ protocol ProductDetailViewModelProtocol: AnyObject {
     func didAddressApendSuccessful()
 }
 
-class ProductDetailViewModel {
+final class ProductDetailViewModel {
     
     weak var delegate : ProductDetailViewModelProtocol?
     weak var viewController : ProductDetailViewController!

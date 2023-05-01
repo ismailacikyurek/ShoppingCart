@@ -7,7 +7,7 @@
 import UIKit
 import Kingfisher
 
-class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController {
     
     private let profileView = ProfileView()
     private let profileViewModel = ProfileViewModel()

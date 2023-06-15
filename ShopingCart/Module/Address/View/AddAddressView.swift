@@ -11,7 +11,7 @@ import SnapKit
 //MARK: Protocols
 protocol AddAddressViewProtocol: AnyObject {
     func dissmisButtonTapped()
-    func addAddressButtonTapped(AddressName : String, Address : String)
+    func addAddressButtonTapped(addressName : String, address : String)
 }
 
 class AddAddressView: UIView {
@@ -128,7 +128,7 @@ extension AddAddressView {
                 addressDecriptionTextView.removeError()
                 addressCityTextField.makeError()
             } else {
-                interface?.addAddressButtonTapped(AddressName: addressName, Address: address + "/" + cityName )
+                interface?.addAddressButtonTapped(addressName: addressName, address: address + "/" + cityName )
             }
         }
     }

@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import UIKit
 
-protocol GeneralViewProtocol {
+@objc protocol GeneralViewProtocol {
     func addView()
     func addTarget()
     func setupUI()
     func layoutUI()
+    @objc optional func setupUICustom(title : String, subTitle : String, buttonText: String,image : UIImage)
 }

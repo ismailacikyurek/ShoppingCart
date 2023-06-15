@@ -7,6 +7,12 @@
 
 import UIKit
 
+
+enum SuccessfulOrError {
+    case error
+    case succces
+}
+
 class GeneralPopupViewController: UIViewController {
  
     // MARK: UIComponent
@@ -15,32 +21,26 @@ class GeneralPopupViewController: UIViewController {
     lazy var titleLabel = UILabel()
     lazy var subTitleLabel =  UILabel()
     lazy var doneButton = UIButton()
-    
-    var image:UIImage?
-    var titleString:String?
-    var subtitle:String?
-    var buttonText:String!
+
     var buttonFunc: () -> Void = {}
     
     // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        setupUI()
+//        setupUI()
         addView()
         addTarget()
         layoutUI()
     }
     
-    func setPopup(image : SuccessfulOrError,title : String?, subtitle:String?, buttonText:String) {
+    func setPopup(image : SuccessfulOrError,title : String?, subtitle:String?, buttonText:String?) {
         if image == .error {
-            self.image = UIImage(named: "error")
+            setupUICustom(title: title!, subTitle: subtitle!, buttonText: buttonText!,image: UIImage(named: "error")!)
         } else {
-            self.image = UIImage(named: "success")
+            setupUICustom(title: title!, subTitle: subtitle!, buttonText: buttonText!,image: UIImage(named: "success")!)
         }
-        self.titleString = title
-        self.subtitle = subtitle
-        self.buttonText = buttonText
+
     }
     
     //MARK: UI Action
@@ -55,14 +55,8 @@ extension GeneralPopupViewController : GeneralViewProtocol {
         doneButton.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
     }
     
-    func setupUI() {
-        contenView.createView(backgroundColor: .white, cornerRadius: 15, clipsToBounds: true)
-        popupImageView.createUIImageView(image: image,contentMode: .scaleToFill)
-        titleLabel.createLabel(text: titleString, backgroundColor: .mainAppColor, textColor: .white,font: .Semibold_22, textAlignment: .center)
-        subTitleLabel.createLabel(text: subtitle, backgroundColor: .white, textColor: .black, font: .Regular_14, numberOfLines: 3, textAlignment: .center)
-        doneButton.createButton(title: buttonText,backgroundColor: .mainAppColor,titleColor: .white,cornerRadius: 20)
-    }
-    
+    func setupUI() {}
+
     func layoutUI() {
         contentViewConstraints()
         titleLabelConstraints()
@@ -74,6 +68,13 @@ extension GeneralPopupViewController : GeneralViewProtocol {
     func addView() {
         view.addSubviews(contenView,doneButton)
         contenView.addSubviews(titleLabel,popupImageView,subTitleLabel)
+    }
+    func setupUICustom(title: String, subTitle: String, buttonText: String, image: UIImage) {
+        contenView.createView(backgroundColor: .white, cornerRadius: 15, clipsToBounds: true)
+        popupImageView.createUIImageView(image: image,contentMode: .scaleToFill)
+        titleLabel.createLabel(text: title, backgroundColor: .mainAppColor, textColor: .white,font: .Semibold_22, textAlignment: .center)
+        subTitleLabel.createLabel(text: subTitle, backgroundColor: .white, textColor: .black, font: .Regular_14, numberOfLines: 3, textAlignment: .center)
+        doneButton.createButton(title: buttonText,backgroundColor: .mainAppColor,titleColor: .white,cornerRadius: 20)
     }
 }
 
@@ -121,7 +122,3 @@ extension GeneralPopupViewController {
 }
 
 
-enum SuccessfulOrError {
-    case error
-    case succces
-}

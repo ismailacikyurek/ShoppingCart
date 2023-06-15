@@ -48,7 +48,7 @@ final class UsersViewModel {
             
             let user = User(id: uid, username: username, email: email, addressList: addressList, cart: cart, favList: favList,recentlyList: recentlyList)
             
-            self.database.collection("Users").document(uid).setData(user.dictionary) { error in
+            COLLECTİON_USERS.document(uid).setData(user.dictionary) { error in
                 if let error = error {
                     self.delegate?.didError(error)
                     return

@@ -76,6 +76,7 @@
 		4442F58229B9359200610544 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4442F58129B9359200610544 /* ProfileTableViewCell.swift */; };
 		447038DF29BC8DC800C096BB /* ProductCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447038DE29BC8DC800C096BB /* ProductCollectionViewCell.swift */; };
 		448F0AEB2A004C0200AD44F8 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F0AEA2A004C0200AD44F8 /* EndPoint.swift */; };
+		448F0AED2A00647700AD44F8 /* COLLECTİON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448F0AEC2A00647700AD44F8 /* COLLECTİON.swift */; };
 		449BB3DB29B34DB6004D328F /* cart.json in Resources */ = {isa = PBXBuildFile; fileRef = 449BB3DA29B34DB6004D328F /* cart.json */; };
 		449BB3E129B3F8EA004D328F /* AlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449BB3E029B3F8EA004D328F /* AlertMessage.swift */; };
 		449BB3E329B3F912004D328F /* ScreenSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 449BB3E229B3F912004D328F /* ScreenSize.swift */; };
@@ -173,6 +174,7 @@
 		4442F58129B9359200610544 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		447038DE29BC8DC800C096BB /* ProductCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCollectionViewCell.swift; sourceTree = "<group>"; };
 		448F0AEA2A004C0200AD44F8 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
+		448F0AEC2A00647700AD44F8 /* COLLECTİON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "COLLECTİON.swift"; sourceTree = "<group>"; };
 		449BB3DA29B34DB6004D328F /* cart.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = cart.json; sourceTree = "<group>"; };
 		449BB3E029B3F8EA004D328F /* AlertMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertMessage.swift; sourceTree = "<group>"; };
 		449BB3E229B3F912004D328F /* ScreenSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenSize.swift; sourceTree = "<group>"; };
@@ -866,6 +868,7 @@
 				449BB42529B55D84004D328F /* Message */,
 				449BB42429B55D6C004D328F /* Design */,
 				449BB42029B55AAA004D328F /* GeneralProtocol.swift */,
+				448F0AEC2A00647700AD44F8 /* COLLECTİON.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1096,6 +1099,7 @@
 				449BB3E129B3F8EA004D328F /* AlertMessage.swift in Sources */,
 				4431CCFC29BB289E00268B0D /* HomeView.swift in Sources */,
 				44399EED29B5DCDD007D9B03 /* CustomPageControl.swift in Sources */,
+				448F0AED2A00647700AD44F8 /* COLLECTİON.swift in Sources */,
 				443EF5CB29C0FFAA00EF0F0E /* CategoryModel.swift in Sources */,
 				4441368629C65AA2009279BE /* RecentlyViewController.swift in Sources */,
 				443BFCEA29BE6744004E15D0 /* WebService.swift in Sources */,

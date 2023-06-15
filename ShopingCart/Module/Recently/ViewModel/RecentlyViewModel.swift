@@ -29,7 +29,7 @@ final class RecentlyViewModel {
     //MARK: Recently Func
     func deleteRecentlyProduct(productId: Int) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         
         userRef.updateData(["recentlyList.\(productId)":FieldValue.delete()]) { error in
             if let error = error {
@@ -42,7 +42,7 @@ final class RecentlyViewModel {
     
     func fetchRecentlyList() {
         guard let currentUser = currentUser else { return }
-        let recentlyListRef = database.collection("Users").document(currentUser.uid)
+        let recentlyListRef = COLLECTİON_USERS.document(currentUser.uid)
         recentlyListRef.getDocument(source: .default) { [self] documentData, error in
             if let documentData = documentData {
                 self.recentlyList = (documentData.get("recentlyList") as? [String: Bool])!

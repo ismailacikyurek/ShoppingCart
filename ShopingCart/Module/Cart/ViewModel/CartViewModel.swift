@@ -32,7 +32,7 @@ final class CartViewModel {
     //MARK: Cart Func
     func updateCartProduct(productId: Int, count: Int) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         
         if count > 0 {
             userRef.updateData(["cart.\(productId)":count]) { error in
@@ -58,7 +58,7 @@ final class CartViewModel {
     
     func fetchCartList() {
         guard let currentUser = currentUser else { return }
-        let cartListRef = database.collection("Users").document(currentUser.uid)
+        let cartListRef = COLLECTİON_USERS.document(currentUser.uid)
         cartListRef.getDocument(source: .default) { [self] documentData, error in
             if let documentData = documentData {
                 self.cartKeyAndValue = (documentData.get("cart") as? [String: Int])!

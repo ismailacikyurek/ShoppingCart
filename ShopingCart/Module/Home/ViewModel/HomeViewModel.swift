@@ -52,7 +52,7 @@ final class HomeViewModel {
     //MARK: Favori Func
     func updateFavoriProduct(productId: Int, fav: Bool) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         
         if fav {
             userRef.updateData(["favList.\(productId)":fav]) { error in
@@ -76,7 +76,7 @@ final class HomeViewModel {
     
     func fetchFavList() {
         guard let currentUser = currentUser else { return }
-        let favListRef = database.collection("Users").document(currentUser.uid)
+        let favListRef = COLLECTİON_USERS.document(currentUser.uid)
         favListRef.getDocument(source: .default) { documentData, error in
             if let documentData = documentData {
                 self.favList = (documentData.get("favList") as? [String: Bool] ?? ["0":false])

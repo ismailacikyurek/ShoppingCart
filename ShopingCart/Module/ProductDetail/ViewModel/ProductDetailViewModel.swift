@@ -44,7 +44,7 @@ final class ProductDetailViewModel {
     //MARK: Recently Func
     func addRecentlyProduct(productId: Int) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         userRef.updateData(["recentlyList.\(productId)":true]) { error in
             if let error = error {
                 print("error")
@@ -57,7 +57,7 @@ final class ProductDetailViewModel {
     //MARK: Cart Func
     func updateCartProduct(productId: Int, count: Int) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         if count > 0 {
             userRef.updateData(["cart.\(productId)":count]) { error in
                 if let error = error {
@@ -81,7 +81,7 @@ final class ProductDetailViewModel {
     
     func updateFavoriProduct(productId: Int, fav: Bool) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         
         if fav {
             userRef.updateData(["favList.\(productId)":fav]) { error in
@@ -104,7 +104,7 @@ final class ProductDetailViewModel {
     
     func favStatus(productId:Int) {
         guard let currentUser = currentUser else { return }
-        let favListRef = database.collection("Users").document(currentUser.uid)
+        let favListRef = COLLECTİON_USERS.document(currentUser.uid)
         favListRef.getDocument(source: .default) { [self] documentData, error in
             if let documentData = documentData {
                 self.favStatus = nil
@@ -126,7 +126,7 @@ final class ProductDetailViewModel {
         myPickerDataUnified.removeAll()
         myPickerDataKey.removeAll()
         guard let currentUser = currentUser else { return }
-        let addressListRef = database.collection("Users").document(currentUser.uid)
+        let addressListRef = COLLECTİON_USERS.document(currentUser.uid)
         addressListRef.getDocument(source: .default) { [self] documentData, error in
             if let documentData = documentData {
                 self.myPickerData = (documentData.get("addressList") as? [String: String])!

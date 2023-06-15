@@ -120,6 +120,9 @@ extension CartViewController : UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if cartViewModel.cartProducts.count == 0 {
+            cartView.emptyCart()
+        }
         return cartViewModel.cartProducts.count
     }
     

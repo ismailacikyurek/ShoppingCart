@@ -9,7 +9,7 @@ import UIKit
 
 final class AddAddressViewController: UIViewController {
     
-    private let addressViewModel = AddressViewModel()
+    private let addressViewModel = AddressViewModel(service: WebService())
     let addAddressView = AddAddressView()
     
     // MARK: Lifecycle
@@ -30,8 +30,8 @@ final class AddAddressViewController: UIViewController {
 }
 // MARK: - View Protocol
 extension AddAddressViewController : AddAddressViewProtocol {
-    func addAddressButtonTapped(AddressName: String, Address: String) {
-        addressViewModel.updateAddressList(addressName: AddressName, Address: Address, addOrDelete: true)
+    func addAddressButtonTapped(addressName: String, address: String) {
+        addressViewModel.updateAddressList(addressName: addressName, Address: address, addOrDelete: true)
     }
     
     func dissmisButtonTapped() {

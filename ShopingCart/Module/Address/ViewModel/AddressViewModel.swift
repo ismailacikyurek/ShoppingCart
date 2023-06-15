@@ -22,7 +22,11 @@ final class AddressViewModel {
     weak var delegate : AddressViewModelProtocol?
     private let database = Firestore.firestore()
     private let currentUser = Auth.auth().currentUser
-    private let service : WebService = WebService()
+    private let service : WebService
+    
+    init(service : WebService) {
+        self.service = service
+    }
     
     var myPickerDataAdressName : [String] = []
     var myPickerDataUnified : [String] = []
@@ -33,7 +37,7 @@ final class AddressViewModel {
     //MARK: Address Func
     func updateAddressList(addressName: String, Address: String,addOrDelete : Bool) {
         guard let currentUser = currentUser else { return }
-        let userRef = database.collection("Users").document(currentUser.uid)
+        let userRef = COLLECTİON_USERS.document(currentUser.uid)
         
         if addOrDelete {
             userRef.updateData(["addressList.\(addressName):":Address]) { error in
@@ -57,7 +61,7 @@ final class AddressViewModel {
     
     func fetchAddressList() {
         guard let currentUser = currentUser else { return }
-        let addressListRef = database.collection("Users").document(currentUser.uid)
+        let addressListRef = COLLECTİON_USERS.document(currentUser.uid)
         addressListRef.getDocument(source: .default) { [self] documentData, error in
             myPickerDataUnified.removeAll()
             myPickerDataAdressName.removeAll()

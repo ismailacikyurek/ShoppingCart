@@ -87,6 +87,7 @@ extension HomeView : GeneralViewProtocol {
 
 extension HomeView  {
     func startTimer() {
+       
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [self] in
             timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(pageCurrentToIndex), userInfo: nil, repeats: true)
         }
@@ -104,9 +105,14 @@ extension HomeView  {
 }
 
 extension HomeView : UITextFieldDelegate {
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.searchTextField.isUserInteractionEnabled = false
-        interface?.goToProductListViewController()
+
+    func textFieldDidChangeSelection(_ textField: UITextField) {
+        if textField.text == "" {
+            } else {
+            searchTextField.text = ""
+            interface?.goToProductListViewController()
+        }
+        
     }
 }
 

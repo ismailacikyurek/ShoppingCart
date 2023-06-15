@@ -610,6 +610,7 @@
 		4442F57C29B9268500610544 /* ResetPassword */ = {
 			isa = PBXGroup;
 			children = (
+				4442F57F29B9325800610544 /* Model */,
 				4431CCF329BA709A00268B0D /* View */,
 			);
 			path = ResetPassword;
@@ -701,7 +702,6 @@
 			children = (
 				4431CCF829BA82BD00268B0D /* Profile */,
 				4442F57C29B9268500610544 /* ResetPassword */,
-				4442F57F29B9325800610544 /* Model */,
 				4442F57829B9180E00610544 /* ViewModel */,
 			);
 			path = Profile;

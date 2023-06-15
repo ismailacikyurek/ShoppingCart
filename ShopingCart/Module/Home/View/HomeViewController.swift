@@ -25,13 +25,14 @@ class HomeViewController: UIViewController {
         homeViewModel.delegate = self
         setupTableViewDelegate()
         setupDelegate()
+        homeView.startTimer()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         homeViewModel.allFetchProducts()
         self.homeViewModel.fetchFavList()
-        self.homeView.searchTextField.isUserInteractionEnabled = true
     }
 }
 
@@ -57,7 +58,7 @@ extension HomeViewController : HomeViewModelProtocol {
     func didCampaignProdcutSuccessful() {
         self.homeView.pageController.numberOfPages = homeViewModel.campaingProducts.count
         self.homeView.sliderCollectionView.reloadData()
-        homeView.startTimer()
+       
     }
     
     func didError(_ error: String) {

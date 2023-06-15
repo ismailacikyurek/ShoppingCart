@@ -20,6 +20,7 @@ protocol ProductDetailViewModelProtocol: AnyObject {
     func didAddressApendSuccessful()
 }
 
+
 final class ProductDetailViewModel {
     
     weak var delegate : ProductDetailViewModelProtocol?
@@ -34,7 +35,7 @@ final class ProductDetailViewModel {
     var myPickerData:[String:String] = [:]
     
     func shareProduct(id : String) {
-        guard let url = URL(string: "https://fakestoreapi.com/products/\(id)") else { return }
+        let url = Endpoint.productsId(id:Int(id)!).url
         let items = [ url ]
         let activityViewController = UIActivityViewController(activityItems: items , applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceView = self.viewController.view

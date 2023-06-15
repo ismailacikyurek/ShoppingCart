@@ -8,7 +8,16 @@
 import UIKit
 
 extension UIView {
-    func createView(backgroundColor: UIColor? = nil, maskedToBounds: Bool? = nil, cornerRadius: CGFloat? = nil, isUserInteractionEnabled: Bool? = nil,image:String? = nil,shadowColor : CGColor? = nil,shadowOffset : CGSize? = nil,clipsToBounds : Bool? = nil,borderColor : CGColor? = nil,borderWidth: CGFloat? = nil) {
+    func createView(backgroundColor: UIColor? = nil,
+                    maskedToBounds: Bool? = nil,
+                    cornerRadius: CGFloat? = nil,
+                    isUserInteractionEnabled: Bool? = nil,
+                    image:String? = nil,
+                    shadowColor : CGColor? = nil,
+                    shadowOffset : CGSize? = nil,
+                    clipsToBounds : Bool? = nil,
+                    borderColor : CGColor? = nil,
+                    borderWidth: CGFloat? = nil) {
         self.layer.masksToBounds = maskedToBounds ?? false
         self.layer.cornerRadius = cornerRadius ?? 0
         self.isUserInteractionEnabled = isUserInteractionEnabled ?? false

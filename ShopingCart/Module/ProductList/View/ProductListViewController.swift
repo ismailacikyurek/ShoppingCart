@@ -66,6 +66,7 @@ extension ProductListViewController {
         guard let category = notification.userInfo?["selectedCategory"] as? SelectedCategory else {return}
         self.category = category
         getProducts()
+      
     }
 }
 extension ProductListViewController : ProductFavoriCollectionViewProtocol {
